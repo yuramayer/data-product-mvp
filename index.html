@@ -10,12 +10,16 @@
   <h2>Создание таблиц</h2>
 
   <div>
-    <label>Код дата-продукта:</label><br>
-    <label><input type="radio" name="dataProduct" value="DP01"> DP01</label>
-    <label><input type="radio" name="dataProduct" value="DP02"> DP02</label>
-    <label><input type="radio" name="dataProduct" value="DP03"> DP03</label>
-    <label><input type="radio" name="dataProduct" value="DP04"> DP04</label>
+    <label for="dataProductSelect">Код дата-продукта:</label><br>
+    <select id="dataProductSelect">
+      <option value="">-- выберите --</option>
+      <option value="DP01">DP01</option>
+      <option value="DP02">DP02</option>
+      <option value="DP03">DP03</option>
+      <option value="DP04">DP04</option>
+    </select>
   </div>
+  
 
   <br>
   <div id="tablesContainer"></div>

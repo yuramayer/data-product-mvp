@@ -31,17 +31,26 @@ function addAttribute() {
       return;
     }
   
-    let csv = `data_product,table_name,table_description,attribute_name,attribute_description\n`;
+    const sep = ";";
+    let csv = `data_product${sep}table_name${sep}table_description${sep}attribute_name${sep}attribute_description\n`;
   
     for (let i = 0; i < names.length; i++) {
       const attrName = names[i].value.trim();
       const attrDesc = descs[i].value.trim();
       if (attrName || attrDesc) {
-        csv += `"${dataProduct.value}","${tableName}","${tableDesc}","${attrName}","${attrDesc}"\n`;
+        const row = [
+          dataProduct.value,
+          tableName,
+          tableDesc,
+          attrName,
+          attrDesc
+        ].map(val => `"${val.replace(/"/g, '""')}"`).join(sep);
+        csv += row + "\n";
       }
     }
   
-    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    // Добавляем BOM (\uFEFF) для корректной кодировки в Excel
+    const blob = new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);
   
     const link = document.createElement("a");

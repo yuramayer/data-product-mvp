@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Создание таблицы</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Создание таблицы</h2>
+
+<div>
+  <label>Код дата-продукта:</label><br>
+  <label><input type="radio" name="dataProduct" value="DP01"> DP01</label>
+  <label><input type="radio" name="dataProduct" value="DP02"> DP02</label>
+  <label><input type="radio" name="dataProduct" value="DP03"> DP03</label>
+  <label><input type="radio" name="dataProduct" value="DP04"> DP04</label>
+</div>
+
+<div>
+  <label>Системное имя таблицы:</label><br>
+  <input type="text" id="tableName">
+</div>
+
+<div>
+  <label>Описание таблицы:</label><br>
+  <input type="text" id="tableDesc">
+</div>
+
+<div>
+  <label>Атрибуты:</label><br>
+  <div id="attributes"></div>
+  <button type="button" onclick="addAttribute()">Добавить атрибут</button>
+</div>
+
+<br>
+<button onclick="saveCSV()">Сохранить в CSV</button>
+
+<script src="script.js"></script>
+</body>
+</html>

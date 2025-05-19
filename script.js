@@ -55,6 +55,26 @@ function addTable() {
     addAttrBtn.onclick = () => addAttribute(attrContainer);
     tableDiv.appendChild(addAttrBtn);
 
+    // Текстовое поле для вставки таблички
+    const pasteLabel = document.createElement("label");
+    pasteLabel.innerText = "Вставьте таблицу из Confluence:";
+    tableDiv.appendChild(document.createElement("br"));
+    tableDiv.appendChild(pasteLabel);
+
+    const pasteArea = document.createElement("textarea");
+    pasteArea.rows = 6;
+    pasteArea.style.width = "100%";
+    pasteArea.placeholder = "Наименование поля\tОписание поля\t...";
+    tableDiv.appendChild(pasteArea);
+
+    const parseBtn = document.createElement("button");
+    parseBtn.type = "button";
+    parseBtn.innerText = "Импортировать из таблицы";
+    parseBtn.onclick = () => importAttributesFromText(pasteArea.value, attrContainer);
+    tableDiv.appendChild(document.createElement("br"));
+    tableDiv.appendChild(parseBtn);
+
+
     container.appendChild(tableDiv);
 }
 
@@ -164,3 +184,59 @@ function saveCSV() {
     link.click();
     document.body.removeChild(link);
 }
+
+
+function importAttributesFromText(rawText, container) {
+    if (!rawText.trim()) {
+      alert("Вставьте данные из таблицы.");
+      return;
+    }
+  
+    const lines = rawText.trim().split("\n").map(line => line.split("\t"));
+    const header = lines[0];
+  
+    const nameCol = header.findIndex(h => h.trim().toLowerCase() === "Наименование поля");
+    const descCol = header.findIndex(h => h.trim().toLowerCase() === "Описание поля");
+  
+    if (nameCol === -1 || descCol === -1) {
+      alert("Не найдены колонки 'Наименование поля' и 'Описание поля'. Убедитесь, что вы вставили корректную таблицу.");
+      return;
+    }
+  
+    for (let i = 1; i < lines.length; i++) {
+      const row = lines[i];
+      const name = row[nameCol]?.trim();
+      const desc = row[descCol]?.trim();
+      if (name && desc) {
+        const div = document.createElement("div");
+        div.className = "attribute";
+        div.style.marginTop = "10px";
+        div.style.padding = "5px";
+        div.style.borderLeft = "2px solid #ddd";
+  
+        const nameInput = document.createElement("input");
+        nameInput.placeholder = "Системное имя атрибута";
+        nameInput.className = "attr-name";
+        nameInput.style.marginRight = "10px";
+        nameInput.value = name;
+  
+        const descInput = document.createElement("input");
+        descInput.placeholder = "Описание атрибута";
+        descInput.className = "attr-desc";
+        descInput.style.marginRight = "10px";
+        descInput.value = desc;
+  
+        const delBtn = document.createElement("button");
+        delBtn.type = "button";
+        delBtn.innerText = "Удалить";
+        delBtn.onclick = () => div.remove();
+  
+        div.appendChild(nameInput);
+        div.appendChild(descInput);
+        div.appendChild(delBtn);
+  
+        container.appendChild(div);
+      }
+    }
+  }
+  

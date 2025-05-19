@@ -238,5 +238,9 @@ function importAttributesFromText(rawText, container) {
         container.appendChild(div);
       }
     }
+    // Очистка поля после успешного импорта
+    const allTextareas = container.parentElement.querySelectorAll("textarea");
+    allTextareas.forEach(area => area.value = "");
+
   }
   

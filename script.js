@@ -195,8 +195,8 @@ function importAttributesFromText(rawText, container) {
     const lines = rawText.trim().split("\n").map(line => line.split("\t"));
     const header = lines[0];
   
-    const nameCol = header.findIndex(h => h.trim().toLowerCase() === "Наименование поля");
-    const descCol = header.findIndex(h => h.trim().toLowerCase() === "Описание поля");
+    const nameCol = header.findIndex(h => h.trim().toLowerCase() === "наименование поля");
+    const descCol = header.findIndex(h => h.trim().toLowerCase() === "описание поля");
   
     if (nameCol === -1 || descCol === -1) {
       alert("Не найдены колонки 'Наименование поля' и 'Описание поля'. Убедитесь, что вы вставили корректную таблицу.");

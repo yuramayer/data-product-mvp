@@ -9,6 +9,8 @@
 - Поддерживает вставку из Confluence-таблиц,
 - Генерирует стандартизированный CSV
 
+### Онлайн-версия веб-приложения: [yuramayer.github.io/data-product-mvp](https://yuramayer.github.io/data-product-mvp/)
+
 ![Скрин приложения](img/image.png)
 
 ## Как использовать

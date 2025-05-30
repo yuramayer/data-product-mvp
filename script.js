@@ -243,4 +243,19 @@ function importAttributesFromText(rawText, container) {
     allTextareas.forEach(area => area.value = "");
 
   }
-  
+
+// ======== Тема (тёмная / светлая) =========
+const themeToggle = document.getElementById("themeToggle");
+const body = document.body;
+
+// Проверка сохранённой темы
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "dark") {
+  body.classList.add("dark");
+}
+
+// Переключение темы
+themeToggle.onclick = () => {
+  body.classList.toggle("dark");
+  localStorage.setItem("theme", body.classList.contains("dark") ? "dark" : "light");
+};

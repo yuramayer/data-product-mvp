@@ -11,6 +11,17 @@
   --radius: 10px;
 }
 
+body.dark {
+  --color-bg: #1e1e2f;
+  --color-panel: #29293d;
+  --color-border: #3a3a50;
+  --color-text: #f0f0f5;
+  --color-muted: #9ca0b0;
+  --color-accent: #6699ff;
+  --color-accent-hover: #4d80e0;
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
 body {
   font-family: var(--font-main);
   background-color: var(--color-bg);

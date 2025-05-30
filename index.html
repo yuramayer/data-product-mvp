@@ -7,26 +7,29 @@
 </head>
 <body>
 
-  <h2>Создание таблиц</h2>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h2>Создание таблиц</h2>
+        <button id="themeToggle" style="font-size: 14px;">🌓 Тема</button>
+    </div>
 
-  <div>
-    <label for="dataProductSelect">Код дата-продукта:</label><br>
-    <select id="dataProductSelect">
-      <option value="">-- выберите --</option>
-      <option value="DP01">DP01</option>
-      <option value="DP02">DP02</option>
-      <option value="DP03">DP03</option>
-      <option value="DP04">DP04</option>
-    </select>
-  </div>
+    <div>
+        <label for="dataProductSelect">Код дата-продукта:</label><br>
+        <select id="dataProductSelect">
+            <option value="">-- выберите --</option>
+            <option value="DP01">DP01</option>
+            <option value="DP02">DP02</option>
+            <option value="DP03">DP03</option>
+            <option value="DP04">DP04</option>
+        </select>
+    </div>
   
 
-  <br>
-  <div id="tablesContainer"></div>
+    <br>
+    <div id="tablesContainer"></div>
 
-  <button type="button" onclick="addTable()">Добавить таблицу</button>
-  <br><br>
-  <button onclick="saveCSV()">Сохранить в CSV</button>
+    <button type="button" onclick="addTable()">Добавить таблицу</button>
+    <br><br>
+    <button onclick="saveCSV()">Сохранить в CSV</button>
 
   <script src="script.js"></script>
 </body>

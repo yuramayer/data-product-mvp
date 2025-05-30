@@ -1,27 +1,105 @@
+:root {
+  --font-main: "Segoe UI", "Inter", sans-serif;
+  --color-bg: #f8f9fb;
+  --color-panel: #ffffff;
+  --color-border: #e0e3e7;
+  --color-text: #1f2d3d;
+  --color-muted: #7b8a9c;
+  --color-accent: #3f80ea;
+  --color-accent-hover: #2b6edc;
+  --shadow-card: 0 4px 10px rgba(0, 0, 0, 0.06);
+  --radius: 10px;
+}
+
 body {
-    font-family: sans-serif;
-    margin: 20px;
-  }
-  
-  input[type="text"] {
-    width: 400px;
-    margin: 5px 0;
-    padding: 5px;
-  }
-  
-  button {
-    margin: 5px 5px 10px 0;
-    padding: 6px 12px;
-    cursor: pointer;
-  }
-  
-  h3 {
-    margin-top: 0;
-  }
-  
-  .table-block {
-    background: #f9f9f9;
-    padding: 10px;
-    border-radius: 6px;
-  }
-  
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  margin: 0 auto;
+  padding: 40px 20px;
+  max-width: 900px;
+  line-height: 1.6;
+}
+
+h2, h3 {
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 16px;
+}
+
+select,
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 15px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: white;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+select:focus,
+input:focus,
+textarea:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(63, 128, 234, 0.2);
+  outline: none;
+}
+
+label {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--color-muted);
+  display: block;
+}
+
+button {
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  margin: 8px 8px 8px 0;
+}
+
+button:hover {
+  background-color: var(--color-accent-hover);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+.table-block {
+  background: var(--color-panel);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-top: 24px;
+  box-shadow: var(--shadow-card);
+}
+
+.attribute {
+  margin-top: 16px;
+  padding: 16px;
+  border-left: 4px solid var(--color-border);
+  background-color: #f1f3f6;
+  border-radius: var(--radius);
+}
+
+#tablesContainer {
+  margin-top: 20px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
